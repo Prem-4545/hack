@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Facial Login & Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #0f2027;
+        background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+        min-height: 100vh;
+      }
+      body {
+        font-family: "Montserrat", "Orbitron", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .container-main {
+        max-width: 370px;
+        margin: 0 auto;
+        margin-top: 32px;
+        background: rgba(20, 20, 30, 0.92);
+        border-radius: 22px;
+        box-shadow: 0 0 32px 4px #00fff7a0, 0 0 0 2px #f857a6;
+        padding: 1.3rem 1.2rem 1.2rem 1.2rem;
+        border: 2px solid #00fff7;
+        animation: neonBox 2.5s infinite alternate;
+      }
+      @keyframes neonBox {
+        0% { box-shadow: 0 0 32px 4px #00fff7a0, 0 0 0 2px #f857a6; }
+        100% { box-shadow: 0 0 48px 8px #f857a6a0, 0 0 0 2px #00fff7; }
+      }
+      .title {
+        color: #fff;
+        letter-spacing: 2.5px;
+        margin-bottom: 0.7rem;
+        text-align: center;
+        font-family: 'Orbitron', 'Montserrat', sans-serif;
+        font-size: 2.1rem;
+        text-shadow: 0 0 8px #00fff7, 0 0 16px #f857a6;
+        animation: neonText 2s infinite alternate;
+      }
+      @keyframes neonText {
+        0% { text-shadow: 0 0 8px #00fff7, 0 0 16px #f857a6; }
+        100% { text-shadow: 0 0 16px #f857a6, 0 0 32px #00fff7; }
+      }
+      .video-frame {
+        border: 3.5px solid #00fff7;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 0 18px #00fff7, 0 0 8px #f857a6;
+        margin: 0 auto 1.2rem auto;
+        width: 220px;
+        height: 165px;
+        background: #181c2b;
+        animation: neonFrame 2.5s infinite alternate;
+      }
+      @keyframes neonFrame {
+        0% { box-shadow: 0 0 18px #00fff7, 0 0 8px #f857a6; }
+        100% { box-shadow: 0 0 32px #f857a6, 0 0 16px #00fff7; }
+      }
+      .button {
+        margin: 0 8px 10px 0;
+        font-family: 'Orbitron', 'Montserrat', sans-serif;
+        font-size: 1.08rem;
+        border-radius: 12px;
+        letter-spacing: 1.2px;
+        box-shadow: 0 0 8px #00fff7, 0 0 2px #f857a6;
+        transition: 0.2s;
+      }
+      .button.is-pink {
+        background: linear-gradient(90deg, #f857a6, #00fff7);
+        color: #fff;
+        border: 2px solid #f857a6;
+        text-shadow: 0 0 4px #00fff7;
+        animation: neonBtn 2s infinite alternate;
+      }
+      .button.is-pink:hover {
+        background: linear-gradient(90deg, #00fff7, #f857a6);
+        transform: scale(1.08) rotate(-2deg);
+        box-shadow: 0 0 16px #f857a6, 0 0 8px #00fff7;
+        border: 2px solid #00fff7;
+      }
+      @keyframes neonBtn {
+        0% { box-shadow: 0 0 8px #00fff7, 0 0 2px #f857a6; }
+        100% { box-shadow: 0 0 16px #f857a6, 0 0 8px #00fff7; }
+      }
+      .field input {
+        border-radius: 12px;
+        border: 2.5px solid #00fff7;
+        background: #232a3a;
+        color: #fff;
+        font-size: 1.13rem;
+        box-shadow: 0 0 12px #00fff7, 0 0 2px #f857a6;
+        transition: border 0.2s, box-shadow 0.2s;
+        font-family: 'Orbitron', 'Montserrat', sans-serif;
+        padding-left: 1.2em;
+        letter-spacing: 1px;
+      }
+      .field input:focus {
+        border: 2.5px solid #f857a6;
+        outline: none;
+        box-shadow: 0 0 20px #f857a6, 0 0 8px #00fff7;
+        background: #232a3a;
+      }
+      .field input::placeholder {
+        color: #00fff7;
+        opacity: 1;
+        font-size: 1.08rem;
+        letter-spacing: 1px;
+        font-family: 'Orbitron', 'Montserrat', sans-serif;
+        text-shadow: 0 0 6px #00fff7, 0 0 2px #f857a6;
+      }
+      #status {
+        min-height: 34px;
+        color: #fff;
+        font-family: 'Orbitron', 'Montserrat', sans-serif;
+        text-shadow: 0 0 6px #00fff7, 0 0 2px #f857a6;
+        margin-top: 0.7rem;
+        animation: neonStatus 2s infinite alternate;
+      }
+      @keyframes neonStatus {
+        0% { text-shadow: 0 0 6px #00fff7, 0 0 2px #f857a6; }
+        100% { text-shadow: 0 0 12px #f857a6, 0 0 8px #00fff7; }
+      }
+      form {
+        margin-bottom: 0;
+      }
+      @media (min-width: 350px) {
+        .container-main {
+          margin-top: 18px;
+          margin-bottom: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div class="container container-main">
+      <h2 class="title is-4 animate__animated animate__fadeInDown">
+        Facial Login & Signup
+      </h2>
+      <div class="video-frame">
+        <video
+          id="video"
+          width="220"
+          height="165"
+          autoplay
+          muted
+          style="object-fit: cover;"
+        ></video>
+      </div>
+      <form onsubmit="return false;">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input
+              class="input is-medium"
+              type="text"
+              id="username"
+              placeholder="Enter username"
+              autocomplete="off"
+              required
+            />
+            <span class="icon is-left"><i class="fas fa-user"></i></span>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="control">
+            <div style="display: flex; align-items: center;">
+              <span id="captcha-question" style="font-weight:bold;font-size:1.1em;margin-right:10px;"></span>
+              <button type="button" id="refresh-captcha" class="button is-small is-info" style="margin-right:10px;">↻</button>
+              <input class="input is-small" type="text" id="captcha-input" placeholder="Enter captcha" autocomplete="off" style="max-width:110px;" required />
+            </div>
+          </div>
+        </div>
+        <div class="buttons is-centered" style="margin-bottom: 0">
+          <button
+            class="button is-pink is-medium"
+            id="signup-btn"
+            type="button"
+          >
+            <span class="icon"><i class="fas fa-user-plus"></i></span>
+            <span>Sign Up</span>
+          </button>
+          <button
+            class="button is-pink is-medium"
+            id="login-btn"
+            type="button"
+          >
+            <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+            <span>Login</span>
+          </button>
+        </div>
+      </form>
+    <script>
+      // Captcha logic
+      let captchaAnswer = null;
+      function generateCaptcha() {
+        const a = Math.floor(Math.random() * 10) + 1;
+        const b = Math.floor(Math.random() * 10) + 1;
+        captchaAnswer = a + b;
+        document.getElementById("captcha-question").textContent = `${a} + ${b} = ?`;
+        document.getElementById("captcha-input").value = "";
+      }
+      document.getElementById("refresh-captcha").onclick = generateCaptcha;
+      generateCaptcha();
+
+      document.getElementById("signup-btn").addEventListener("click", function() {
+        capture('signup');
+      });
+      document.getElementById("login-btn").addEventListener("click", function() {
+        capture('login');
+      });
+    </script>
+      <canvas
+        id="canvas"
+        width="160"
+        height="160"
+        style="display: none"
+      ></canvas>
+      <div
+        id="status"
+        class="has-text-centered is-size-5 animate__animated"
+      ></div>
+    </div>
+    
+    <script
+      src="https://kit.fontawesome.com/7d7e9f7a2d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      
+      const video = document.getElementById("video");
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => (video.srcObject = stream));
+
+      let pendingOverwrite = false; // flag to handle overwrite
+
+      function showStatus(msg, isSuccess) {
+        const status = document.getElementById("status");
+        status.innerText = msg;
+        status.classList.remove(
+          "animate__shakeX",
+          "animate__tada",
+          "has-text-success",
+          "has-text-danger"
+        );
+        if (isSuccess) {
+          status.classList.add("has-text-success", "animate__tada");
+        } else {
+          status.classList.add("has-text-danger", "animate__shakeX");
+        }
+      }
+
+      function capture(action) {
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(video, 0, 0, 160, 160);
+        const dataUrl = canvas.toDataURL("image/jpeg");
+        const username = document.getElementById("username").value.trim();
+        const captchaInput = document.getElementById("captcha-input").value.trim();
+        if (!username) {
+          showStatus("Please enter a username.", false);
+          return;
+        }
+        if (!captchaInput || isNaN(captchaInput) || Number(captchaInput) !== captchaAnswer) {
+          showStatus("Captcha incorrect. Try again!", false);
+          generateCaptcha();
+          return;
+        }
+        const formData = new FormData();
+        formData.append("username", username.replace(/\s+/g, "_"));
+        formData.append("image", dataUrl);
+        formData.append("captcha", captchaInput);
+        fetch("/" + action, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            showStatus(res.message, res.status === "success");
+            if (res.status === "success" && action === "login") {
+              setTimeout(() => (window.location = "/profile"), 900);
+            }
+          })
+          .catch(() => {
+            showStatus("Network error. Try again!", false);
+          });
+      }
+    </script>
+    </script>
+  </body>
+</html>

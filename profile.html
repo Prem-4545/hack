@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Orbitron:700,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .profile-box {
+        margin: 0 auto 32px auto;
+        max-width: 420px;
+        background: rgba(20, 20, 30, 0.96);
+        border-radius: 24px;
+        box-shadow: 0 0 32px 4px #00fff7a0, 0 0 0 2px #f857a6;
+        padding: 1.2rem 2rem 2rem 2rem;
+        border: 2px solid #00fff7;
+        animation: neonBox 2.5s infinite alternate;
+      }
+      @keyframes neonBox {
+        0% {
+          box-shadow: 0 0 32px 4px #00fff7a0, 0 0 0 2px #f857a6;
+        }
+        100% {
+          box-shadow: 0 0 48px 8px #f857a6a0, 0 0 0 2px #00fff7;
+        }
+      }
+      .profile-title {
+        color: #fff;
+        letter-spacing: 2.5px;
+        text-align: center;
+        font-family: "Orbitron", "Montserrat", sans-serif;
+        font-size: 2.1rem;
+        text-shadow: 0 0 8px #00fff7, 0 0 16px #f857a6;
+        animation: neonText 2s infinite alternate;
+      }
+      @keyframes neonText {
+        0% {
+          text-shadow: 0 0 8px #00fff7, 0 0 16px #f857a6;
+        }
+        100% {
+          text-shadow: 0 0 16px #f857a6, 0 0 32px #00fff7;
+        }
+      }
+      .profile-info {
+        color: #fff;
+        font-size: 1.15rem;
+        margin: 1.5rem 0 1.2rem 0;
+        text-align: center;
+        font-family: "Montserrat", "Orbitron", sans-serif;
+        text-shadow: 0 0 6px #00fff7, 0 0 2px #f857a6;
+      }
+      .profile-badge {
+        display: inline-block;
+        background: linear-gradient(90deg, #f857a6, #00fff7);
+        color: #fff;
+        border-radius: 12px;
+        padding: 0.4em 1.2em;
+        font-size: 1.1rem;
+        font-family: "Orbitron", "Montserrat", sans-serif;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 0 8px #00fff7, 0 0 2px #f857a6;
+        animation: neonBtn 2s infinite alternate;
+      }
+      @keyframes neonBtn {
+        0% {
+          box-shadow: 0 0 8px #00fff7, 0 0 2px #f857a6;
+        }
+        100% {
+          box-shadow: 0 0 16px #f857a6, 0 0 8px #00fff7;
+        }
+      }
+      .profile-logout {
+        margin-top: 2rem;
+        font-family: "Orbitron", "Montserrat", sans-serif;
+        font-size: 1.08rem;
+        border-radius: 12px;
+        letter-spacing: 1.2px;
+        box-shadow: 0 0 8px #00fff7, 0 0 2px #f857a6;
+        background: linear-gradient(90deg, #f857a6, #00fff7);
+        color: #fff;
+        border: 2px solid #f857a6;
+        text-shadow: 0 0 4px #00fff7;
+        animation: neonBtn 2s infinite alternate;
+      }
+      .profile-logout:hover {
+        background: linear-gradient(90deg, #00fff7, #f857a6);
+        border: 2px solid #00fff7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-box has-text-centered">
+      <div class="profile-badge">👤 {{ user }}</div>
+      <h1 class="profile-title">Welcome, {{ user }}!</h1>
+      <div class="profile-info">
+        <p>
+          <strong>Status:</strong> <span style="color: #00fff7">Active</span>
+        </p>
+        <p>
+          <strong>Login Method:</strong>
+          <span style="color: #f857a6">Face Recognition</span>
+        </p>
+        <p>
+          <strong>Last Login:</strong> <span id="last-login">Just now</span>
+        </p>
+      </div>
+      <a href="/logout" class="profile-logout button">Log Out</a>
+    </div>
+    <script>
+      // Optionally, you can set last login time dynamically
+      document.getElementById("last-login").textContent =
+        new Date().toLocaleString();
+    </script>
+  </body>
+</html>
